@@ -3,4 +3,7 @@
 *.*~
 *.el
 *.elc
+SICP_Course_Materials
+*.rkt
+
 

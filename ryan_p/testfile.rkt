@@ -1,7 +1,17 @@
-#lang racket
+;#lang Racket
+;#lang Scheme
+#lang planet neil/sicp
+
+(define -1+
+  (lambda (x)
+    (- x 1)))
+
+(define 1+
+  (lambda (x)
+    (+ x 1)))
 
 (define meters-to-feet
-  (λ (m)
+  (lambda (m)
     (/ (* m 39.6) 12)))
 ;(define (meters-to-feet m)
 ;  (/ (* m 39.6) 12))
@@ -31,42 +41,46 @@
 (define (f a)
   (sum-of-squares (+ a 1) (* a 2)))
 
-(define (>= x y)
-  (or (> x y) (= x y)))
+(define >= 
+  (lambda (x y)
+  (or (> x y) (= x y))))
 
-(define (<= x y)
-  (or (< x y) (= x y)))
+(define <= 
+  (lambda (x y)
+  (or (< x y) (= x y))))
 
 (define (Smallest x y z)
   (cond
-    [(= x y z) x]
-    [(and (<= x y) (<= x z)) x]
-    [(and (<= y x) (<= y z)) y]
-    [(and (<= z x) (<= z x)) z]
-    [else x]))
+    ((= x y z) x)
+    ((and (<= x y) (<= x z)) x)
+    ((and (<= y x) (<= y z)) y)
+    ((and (<= z x) (<= z x)) z)
+    (else x)))
 
 (define (Largest x y z)
   (cond
-    [(= x y z) x]
-    [(and (>= x y) (>= x z)) x]
-    [(and (>= y x) (>= y z)) y]
-    [(and (>= z x) (>= z y)) z]
-    [else x]))
+    ((= x y z) x)
+    ((and (>= x y) (>= x z)) x)
+    ((and (>= y x) (>= y z)) y)
+    ((and (>= z x) (>= z y)) z)
+    (else x)))
 
 (define (sum-of-largest-squares x y z)
   (cond
-    [(= x (Smallest x y z)) (sum-of-squares y z)]
-    [(= y (Smallest x y z)) (sum-of-squares x z)]
-    [(= z (Smallest x y z)) (sum-of-squares x y)]
-    [else 0]))
+    ((= x (Smallest x y z)) (sum-of-squares y z))
+    ((= y (Smallest x y z)) (sum-of-squares x z))
+    ((= z (Smallest x y z)) (sum-of-squares x y))
+    (else 0)))
 
-(define max (λ ( a b) (if (> a b) a b)))
-(define max-sum (λ (a b) (max (+ a b) (- a b))))
+(sum-of-largest-squares 1 2 3)
+
+(define max (lambda ( a b) (if (> a b) a b)))
+(define max-sum (lambda (a b) (max (+ a b) (- a b))))
 
 ; if x=1 evaluates to 2
-(define λ1
-  (λ (x) (+ x x)))
+(define lambda1
+  (lambda (x) (+ x x)))
 
 ; error
-(define λ2
-  ((λ (x) (+ x x)) 2))
+(define lambda2
+  ((lambda (x) (+ x x)) 2))

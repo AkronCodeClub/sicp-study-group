@@ -1,7 +1,24 @@
 # Exercises: 1.1 The Elements of Programming
 
+def minimum(list)
+  if list.empty?
+    nil
+  else
+    minimum_recursive(list.first, list)
+  end
+end
+
+def minimum_recursive(min, list)
+  if list.empty?
+    min
+  else
+    minimum_recursive((list.first < min ? list.first : min), list.drop(1))
+  end
+end
+
 def drop_the_smallest_by_reduction(*args)
-  min = args.min
+  #min = args.min
+  min = minimum(args)
   found = false
   result = args.reduce([]) do |memo, item|
     if item == min && ! found
@@ -15,7 +32,7 @@ def drop_the_smallest_by_reduction(*args)
 end
 
 def drop_the_smallest(*args)
-  drop_the_smallest_recursive(args.min, false, [], args)
+  drop_the_smallest_recursive(minimum(args), false, [], args)
 end
 
 def drop_the_smallest_recursive(min, found, accum, list)

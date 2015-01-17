@@ -3,6 +3,41 @@ require_relative 'functions'
 
 #####################################################################
 
+context :minimum do
+
+  it 'returns nil when given an empty list' do
+    result = minimum([])
+    expect(result).to be_nil
+  end
+
+  it 'returns the item when given a single-item list' do
+    result = minimum([2])
+    expect(result).to eq 2
+  end
+
+  it 'returns the minimum when the smallest is first' do
+    result = minimum([2, 4, 6])
+    expect(result).to eq 2
+  end
+
+  it 'returns the minimum when the smallest is last' do
+    result = minimum([6, 4, 2])
+    expect(result).to eq 2
+  end
+
+  it 'returns the minimum when the smallest is in the middle' do
+    result = minimum([4, 2, 6])
+    expect(result).to eq 2
+  end
+
+  it 'returns the minimum when all elements are the same' do
+    result = minimum([2, 2, 2, 2, 2, 2])
+    expect(result).to eq 2
+  end
+end
+
+#####################################################################
+
 shared_examples_for :drop_the_smallest_function do
 
   it 'returns an empty array when given no arguments' do
@@ -52,14 +87,14 @@ context :drop_the_smallest do
 
   let!(:func){ :drop_the_smallest }
 
-  it_should_behave_like :drop_the_smallest_function
+  it_behaves_like :drop_the_smallest_function
 end
 
 context :drop_the_smallest_by_reduction do
 
   let!(:func){ :drop_the_smallest_by_reduction }
 
-  it_should_behave_like :drop_the_smallest_function
+  it_behaves_like :drop_the_smallest_function
 end
 
 #####################################################################
@@ -106,12 +141,12 @@ context :sum_squares_of_two_biggest do
 
   let!(:func){ :sum_squares_of_two_biggest }
 
-  it_should_behave_like :sum_squares_function
+  it_behaves_like :sum_squares_function
 end
 
 context :sum_squares_excluding_smallest do
 
   let!(:func){ :sum_squares_excluding_smallest }
 
-  it_should_behave_like :sum_squares_function
+  it_behaves_like :sum_squares_function
 end

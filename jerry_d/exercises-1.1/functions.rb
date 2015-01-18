@@ -69,3 +69,79 @@ def sum_squares_excluding_smallest(*args)
     accum += n * n
   end
 end
+
+#####################################################################
+
+module SquareRoot
+  extend self
+
+  def abs(x)
+    x < 0 ? -x : x
+  end
+
+  def sqrt_iter(guess, x)
+    if good_enough?(guess, x)
+      guess
+    else
+      sqrt_iter(improve(guess, x), x)
+    end
+  end
+
+  def improve(guess, x)
+    average(guess, (x / guess))
+  end
+
+  def average(x, y)
+    (x + y) / 2
+  end
+
+  def square(x)
+    x * x
+  end
+
+  def good_enough?(guess, x)
+    abs((square(guess) - x)) < 0.001
+  end
+
+  def calculate_for(x)
+    sqrt_iter(1.0, x)
+  end
+end
+
+#####################################################################
+
+module CubeRoot
+  extend self
+
+  def abs(x)
+    x < 0 ? -x : x
+  end
+
+  def cbrt_iter(guess, x)
+    if good_enough?(guess, x)
+      guess
+    else
+      cbrt_iter(improve(guess, x), x)
+    end
+  end
+
+  def improve(guess, x)
+    ((x / square(guess)) + (2 * guess)) / 3
+  end
+
+  def square(x)
+    x * x
+  end
+
+  def cube(x)
+    x * x * x
+  end
+
+  def good_enough?(guess, x)
+    abs((cube(guess) - x)) < 0.001
+  end
+
+  def calculate_for(x)
+    cbrt_iter(1.0, x)
+  end
+end

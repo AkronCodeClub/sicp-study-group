@@ -56,3 +56,18 @@
   (cube-root-iter 1 x))
 
 (cube-root 27)
+
+(define (good-enough-v2? previous-guess guess)
+  (< (/ (abs (- previous-guess guess)) guess) 0.0000001))
+
+(define (cube-root-iter-v2 previous-guess guess x)
+  (if (good-enough-v2? previous-guess guess)
+      (exact->inexact guess)
+      (cube-root-iter-v2 guess (improve guess x) x)))
+
+(define (cube-root-v2 x)
+  (cube-root-iter-v2 0 1 x))
+
+(cube-root-v2 27)
+
+(cube-root-v2 0.0000001)

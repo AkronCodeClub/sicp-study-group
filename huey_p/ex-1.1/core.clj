@@ -71,3 +71,13 @@
 (cube-root' 1e-13)
 
 (cube-root' 8)
+
+(defn improve'' [x guess]
+  (double (/ (+ (/ x (* guess guess)) (* 2 guess)) 3)))
+
+(defn cube-root'' [x]
+  (->> (iterate (partial improve'' x) 1)
+    (drop 1000)
+    first))
+
+(cube-root'' 27)

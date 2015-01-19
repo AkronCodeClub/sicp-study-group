@@ -53,11 +53,11 @@
 (cube-root 27)
 
 (defn cube-root-guesses [x]
-  ((fn next-guess [previous-guess guess]
+  ((fn next-guess [guess]
      (lazy-seq
       (let [improved-guess (improve guess x)]
-        (cons improved-guess (next-guess guess improved-guess)))))
-   0 1))
+        (cons improved-guess (next-guess improved-guess)))))
+   1))
 
 (take 10 (cube-root-guesses 27))
 

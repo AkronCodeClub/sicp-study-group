@@ -43,13 +43,13 @@
 ```
 
 
-## **Exercise 1.3**
+## Exercise 1.3
 
 ```scheme
 (define (f x y z)
-  (cond ((and (< x y) (< x z)) (+ (* y y) (* z z)))
-        ((and (< y x) (< y z)) (+ (* x x) (* z z)))
-        ((and (< z x) (< z y)) (+ (* x x) (* y y)))))
+  (cond ((and (<= x y) (<= x z)) (+ (* y y) (* z z)))
+        ((and (<= y x) (<= y z)) (+ (* x x) (* z z)))
+        ((and (<= z x) (<= z y)) (+ (* x x) (* y y)))))
 ```
 
 
@@ -83,7 +83,7 @@ Using _normal-order_ evaluation only the first expression is evaluated and the r
      3))
 
 (define (good-enough? guess x)
-  (< (abs (- (cube guess) x)) 0.001))
+  (< (abs (- (cube guess) x)) (* x 0.001)))
 
 (define (curt-iter guess x)
   (if (good-enough? guess x)

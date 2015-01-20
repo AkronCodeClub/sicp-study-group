@@ -2,6 +2,12 @@
 *.bak
 *.pdf
 *.*~
+*.~*
+*.dcu
+*.o
+*.ppu
+*.compiled
+converterbackup
 SICP_Course_Materials
 
 

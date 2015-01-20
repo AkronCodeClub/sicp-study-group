@@ -43,6 +43,7 @@
 (assertEqual 2  (sum_squares_of_two_biggest 1 1 1) "returns 2 when given all arguments are 1")
 (assertEqual 8  (sum_squares_of_two_biggest 2 2 2) "returns 8 when given all arguments are 2")
 (assertEqual 18 (sum_squares_of_two_biggest 3 3 2) "returns 18 when given when given 3, 3, and a smaller number")
+(assertEqual 18 (sum_squares_of_two_biggest 2 3 3) "returns 18 when given when given 3, 3, and a smaller number")
 (assertEqual 13 (sum_squares_of_two_biggest 1 2 3) "returns 13 when given 1, 2, and 3")
 (assertEqual 52 (sum_squares_of_two_biggest 2 4 6) "returns the proper result when the first arg is the smallest")
 (assertEqual 52 (sum_squares_of_two_biggest 4 2 6) "returns the proper result when the second arg is the smallest")
@@ -51,19 +52,19 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (define (sqrt-iter guess x)
-  (if (good-enough? guess x)
-      guess
-      (sqrt-iter (improve guess x)
+  (if (sqrt-good-enough? guess x)
+      (* 1.0 guess)
+      (sqrt-iter (sqrt-improve guess x)
                  x)))
 
-(define (improve guess x)
+(define (sqrt-improve guess x)
   (average guess (/ x guess)))
 
-(define (good-enough? guess x)
+(define (sqrt-good-enough? guess x)
   (< (abs (- (square guess) x)) 0.001))
 
 (define (sqrt x)
-  (sqrt-iter 1.0 x))
+  (sqrt-iter 1 x))
 
 (display "Suite: sqrt")
 (newline)
@@ -82,19 +83,19 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (define (cbrt-iter guess x)
-  (if (good-enough? guess x)
-      guess
-      (cbrt-iter (improve guess x)
+  (if (cbrt-good-enough? guess x)
+      (* 1.0 guess)
+      (cbrt-iter (cbrt-improve guess x)
                  x)))
 
-(define (improve guess x)
+(define (cbrt-improve guess x)
   (/ (+ (/ x (square guess)) (* 2 guess)) 3))
 
-(define (good-enough? guess x)
+(define (cbrt-good-enough? guess x)
   (< (abs (- (cube guess) x)) 0.001))
 
 (define (cbrt x)
-  (cbrt-iter 1.0 x))
+  (cbrt-iter 1 x))
 
 (display "Suite: sum_squares_of_two_biggest")
 (newline)

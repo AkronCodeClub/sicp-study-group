@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="3">
+      <Unit0>
+        <Filename Value="Test_FIB_1_11.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Test_FIB_1_11"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="55" Y="11"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="testcase_fib.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="testcase_Fib"/>
+        <EditorIndex Value="0"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="15"/>
+        <CursorPos X="31" Y="44"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="fib_1_11.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="fib_1_11"/>
+        <EditorIndex Value="1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="23" Y="33"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit2>
+    </Units>
+    <General>
+      <ActiveWindowIndexAtStart Value="0"/>
+    </General>
+    <JumpHistory Count="4" HistoryIndex="3">
+      <Position1>
+        <Filename Value="fib_1_11.pas"/>
+        <Caret Line="12" Column="19" TopLine="1"/>
+      </Position1>
+      <Position2>
+        <Filename Value="fib_1_11.pas"/>
+        <Caret Line="15" Column="7" TopLine="1"/>
+      </Position2>
+      <Position3>
+        <Filename Value="testcase_fib.pas"/>
+        <Caret Line="33" Column="60" TopLine="3"/>
+      </Position3>
+      <Position4>
+        <Filename Value="testcase_fib.pas"/>
+        <Caret Line="39" Column="38" TopLine="9"/>
+      </Position4>
+    </JumpHistory>
+  </ProjectSession>
+  <EditorMacros Count="0"/>
+</CONFIG>

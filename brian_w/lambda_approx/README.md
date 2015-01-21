@@ -99,6 +99,8 @@ Now we take a moment to recognize that the `try` function is a *generic* mechani
 
 You can see this version of the code [here](version3.scm).
 
+### What's in a name....
+
 Let's take another quick moment to rewrite *just* the `sqrt` function using the `lambda` variant of define. This will ease the transition into the final versions of the code.
 
 ```scheme

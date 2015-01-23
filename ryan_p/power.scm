@@ -17,6 +17,7 @@
 (define (power base exponent)
   (let loop ((b base) (e exponent))
     (cond ((= e 0) 1)
+          ((< e 0) (/ 1 (loop b (* e -1))))
           ((even? e) (square (loop b (/ e 2))))
           (else (* b (loop b (- e 1)))))))
 

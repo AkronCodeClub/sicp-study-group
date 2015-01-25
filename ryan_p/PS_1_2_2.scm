@@ -7,7 +7,7 @@
 
 (define second-order
   (lambda (x)
-    (- (+ (* 14 x) (* 3 (sqr x))) 5)))
+    (+ (* 14 x) (* 3 (sqr x)) -5)))
 
 (second-order 5)   ; 140
 (second-order 10)  ; 435

@@ -91,3 +91,58 @@ b
 ;; => 104
 
 
+;; Example 1.7: Square roots by Newton's method
+
+(define (average x y)
+  (/ (+ x y) 2))
+
+(define (improve guess x)
+  (average guess (/ x guess)))
+
+(define (square x)
+  (* x x))
+
+(define (good-enough? guess x)
+  (< (abs (- (square guess) x)) 0.001))
+
+(define (sqrt-iter guess x)
+  (if (good-enough? guess x)
+    guess
+    (sqrt-iter (improve guess x)
+               x)))
+
+(define (sqrt x)
+  (sqrt-iter 1.0 x))
+
+
+;; Exercise 1.8
+
+;; Use the cube-root formula to implement a cube-root procedure analogus to the square root procedure
+
+
+(define (average x y)
+  (/ (+ x y) 2))
+
+(define (square x)
+  (* x x))
+
+(define (improve guess x)
+  (/ (+ (/ x (square guess)) (* 2 guess)) 3))
+
+(define (cube x)
+  (* x x x))
+
+(define (close-enough? guess x)
+  (< (abs (- (cube guess) x)) 0.001))
+
+(define (cube-rt-iter guess x)
+  (if (close-enough? guess x)
+    guess
+    (cube-rt-iter (improve guess x)
+                  x)))
+
+(define (cube-rt x)
+  (cube-rt-iter 1 x))
+
+(cube-rt 8)
+;; => 2.000004911675504

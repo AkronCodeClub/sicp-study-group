@@ -16,6 +16,9 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(display "Suite: double")
+(newline)
+
 ; PS.1.2.1: Double your pleasure
 ; 
 ; Write a Scheme procedure that, given a value for x, returns double that value.
@@ -29,6 +32,9 @@
 (assertEqual 20 (double 10) "double 10 equals 10")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(display "Suite: second-order")
+(newline)
 
 ; PS.1.2.2: Solving simple equations
 ; 
@@ -44,6 +50,9 @@
 (assertEqual 435 (second-order 10) "second-order 10 equals 435")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(display "Suite: quadratic-root")
+(newline)
 
 ;  PS.1.2.3: Solving quadratic equations
 ; 
@@ -67,11 +76,6 @@
 ; 
 ;  @see https://www.rit.edu/~w-asc/documents/services/resources/handouts/9Roots%20of%20Quadratic%20Equations.pdf
   
-  ;def quadratic_root(a, b, c)
-    ;bigger2(* ->(n1, n2, denom) {
-      ;[(n1 + n2)/denom, (n1 - n2)/denom]
-    ;}.call(-b, (Math.sqrt(b*b - 4*a*c)), (2*a)))
-  ;end
 (define quadratic-root
   (lambda (a b c)
     (define (n1) (- b))
@@ -83,3 +87,45 @@
 (assertWithin 3.0 (quadratic-root 1 -6 9) 0.1 "quadratic-root (1, -6, 9) ~ 3.0")
 (assertWithin -0.38 (quadratic-root 1 3 1) 0.1 "quadratic-root (1, 3, 1) ~ -0.38")
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;  PS.1.2.6: Pushing it to the max
+;  
+;  Another built in Scheme procedure, called max, takes an arbitrary
+;  number of arguments, and returns the largest of them. We should be
+;  able to write a simple version of this ourselves.
+
+;  Part 1: Do it for two
+;  
+;  Write a Scheme procedure that takes two numbers as arguments, and
+;  returns the larger of the two. Do not use max within your procedure
+;  (this is cheating!!).
+
+(display "Suite: bigger2")
+(newline)
+  
+(define bigger2 (lambda (a b)
+                  (if (< a b) b a)))
+
+(assertEqual 2 (bigger2 1 2) "bigger 1,2 is 2")
+(assertEqual 2 (bigger2 2 1) "bigger 2,1 is 2")
+(assertEqual 2 (bigger2 -1 2) "bigger -1,2 is 2")
+(assertEqual 2 (bigger2 2 -1) "bigger 2,-1 is 2")
+(assertEqual 2 (bigger2 2 2) "bigger 2,2 is 2")
+
+(display "Suite: bigger3")
+(newline)
+
+;  Part 2: Do it for three
+;  
+;  Write a Scheme procedure that takes three numbers as arguments,
+;  and returns the larger of the three. Do not use max within your
+;  procedure (this is cheating!!), but do use your procedure bigger2.
+  
+(define bigger3 (lambda (a b c) (bigger2 a (bigger2 b c))))
+
+(assertEqual 3 (bigger3 1 2 3) "bigger 1,2,3 is 3")
+(assertEqual 3 (bigger3 3 2 1) "bigger 3,2,1 is 3")
+(assertEqual 3 (bigger3 1 3 2) "bigger 1,3,2 is 3")
+(assertEqual 3 (bigger3 -1 -2 3) "bigger -1,-2,3 is 3")
+(assertEqual 3 (bigger3 3 3 3) "bigger 3,3,3 is 3")

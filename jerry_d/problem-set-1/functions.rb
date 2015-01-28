@@ -3,7 +3,8 @@ module Schemer
 
   # PS.1.2.1: Double your pleasure
   # 
-  # Write a Scheme procedure that, given a value for x, returns double that value.
+  # Write a Scheme procedure that, given a value for x, returns
+  # double that value.
   # 
   # `(define double (lambda (x) write_your_code_here))`
   def double(a)
@@ -12,7 +13,8 @@ module Schemer
 
   # PS.1.2.2: Solving simple equations
   # 
-  # Write a Scheme procedure that, given a value for x, finds the value of the second order expression 3x^2 + 14x -5.
+  # Write a Scheme procedure that, given a value for x, finds the
+  # value of the second order expression 3x^2 + 14x -5.
   # 
   # `(define second-order (lambda (x) your_code_here))`
   def second_order(a)
@@ -35,7 +37,7 @@ module Schemer
   # testing your code, you might note that Dr. Scheme's built-in sqrt
   # procedure will accept negative arguments and return imaginary values.
   # 
-  # ```ruby
+  # ```
   # (define quadratic-root
   #   (lambda (a b c) your_code_here)) 
   # ```

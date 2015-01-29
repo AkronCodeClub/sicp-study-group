@@ -1,5 +1,0 @@
-(define (squared x) (* x x))
-
-(define second-order (lambda (x) (+ (* 3 (squared x)) (* 14 x) -5)))
-
-(second-order 4)

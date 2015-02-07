@@ -1,5 +1,6 @@
 ;#lang racket
 #lang planet neil/sicp
+; comment top two lines to try in MIT-Scheme
 
 ;Exercise 2.3
 
@@ -42,7 +43,6 @@
 ;=================
 
 ;used for method 1 only
-
 (define (rect-width1 r)
   (abs (- (x-point (get-start-point r))
           (x-point (get-end-point r)))))

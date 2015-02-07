@@ -1,5 +1,6 @@
 ;#lang racket
 #lang planet neil/sicp
+; comment top two lines to try in MIT-Scheme
 
 ;Exercise 2.2
 

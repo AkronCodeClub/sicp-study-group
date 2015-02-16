@@ -51,19 +51,20 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(define (sqrt-iter guess x)
-  (if (sqrt-good-enough? guess x)
+(define (sqrt x)
+
+  (define (sqrt-iter guess x)
+    (if (sqrt-good-enough? guess x)
       (* 1.0 guess)
       (sqrt-iter (sqrt-improve guess x)
                  x)))
 
-(define (sqrt-improve guess x)
-  (average guess (/ x guess)))
+  (define (sqrt-improve guess x)
+    (average guess (/ x guess)))
 
-(define (sqrt-good-enough? guess x)
-  (< (abs (- (square guess) x)) 0.001))
+  (define (sqrt-good-enough? guess x)
+    (< (abs (- (square guess) x)) 0.001))
 
-(define (sqrt x)
   (sqrt-iter 1 x))
 
 (display "Suite: sqrt")
@@ -82,19 +83,20 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(define (cbrt-iter guess x)
-  (if (cbrt-good-enough? guess x)
+(define (cbrt x)
+
+  (define (cbrt-iter guess x)
+    (if (cbrt-good-enough? guess x)
       (* 1.0 guess)
       (cbrt-iter (cbrt-improve guess x)
                  x)))
 
-(define (cbrt-improve guess x)
-  (/ (+ (/ x (square guess)) (* 2 guess)) 3))
+  (define (cbrt-improve guess x)
+    (/ (+ (/ x (square guess)) (* 2 guess)) 3))
 
-(define (cbrt-good-enough? guess x)
-  (< (abs (- (cube guess) x)) 0.001))
+  (define (cbrt-good-enough? guess x)
+    (< (abs (- (cube guess) x)) 0.001))
 
-(define (cbrt x)
   (cbrt-iter 1 x))
 
 (display "Suite: sum_squares_of_two_biggest")

@@ -40,7 +40,7 @@
 ######################################################################################
 
 
-
+@current_expansion ||= []
 
 def pascals_triangle(rows)
    @current_expansion ||= []
@@ -63,7 +63,9 @@ def pascals_triangle(rows)
    @current_expansion << current_expansion
 
   if @row_length == rows
-    @current_expansion.each_with_index { |v, i| printf(("%#{60 + (i)}s"), v);puts }
+    #@current_expansion.each_with_index { |v, i| printf(("%#{60 + (i)}s"), v);puts }
+    @current_expansion.each_with_index { |v, i| printf(("%#{30}s").center(30), v);puts }
+
   else
     @row_length += 1
     pascals_triangle(rows)   
@@ -71,6 +73,8 @@ def pascals_triangle(rows)
 end
 
 puts
+@current_expansion.each { |v| p v.length }
+
 
 pascals_triangle(10)
 

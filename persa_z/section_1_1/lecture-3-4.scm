@@ -39,10 +39,25 @@
 
 ;; The following pattern of numbers is called Pascal's triangle.
 
+;;        1
+;;       1 1
+;;      1 2 1
+;;     1 3 3 1
+;;    1 4 6 4 1
+
 ;; Exercise 1.12 Formula 1
 
-;; The numbers at the edge of the triangle are all 1, and each number inside the triangle is the sum of the two numbers above it.35 Write a procedure that computes elements of Pascal's triangle by means of a recursive process.
+;; The numbers at the edge of the triangle are all 1, and each number inside the triangle is the sum of the two numbers above it.
 
+;; Write a procedure that computes elements of Pascal's triangle by means of a recursive process.
+
+(define (pascal row col)
+  (cond ((or (< row col)
+             (< col 1)) 0 )
+        ((or (= col 1)
+             (= col row)) 1)
+        (else (+ (pascal (- row 1) (- col 1))
+                 (pascal (- row 1) col )))))
 
 
 ;; Exercise 1.22
@@ -60,4 +75,20 @@
   (display " *** ")
   (display elapsed-time))
 
-;; Using this procedure, write a procedure search-for-primes that checks the primality of consecutive odd integers in a specified range. Use your procedure to find the three smallest primes larger than 1000; larger than 10,000; larger than 100,000; larger than 1,000,000. Note the time needed to test each prime. Since the testing algorithm has order of growth of (n), you should expect that testing for primes around 10,000 should take about 10 times as long as testing for primes around 1000. Do your timing data bear this out? How well do the data for 100,000 and 1,000,000 support the n prediction? Is your result compatible with the notion that programs on your machine run in time proportional to the number of steps required for the computation?
+;; Using this procedure, write a procedure search-for-primes that checks the primality
+;; of consecutive odd integers in a specified range. Use your procedure to find:
+;; the three smallest primes larger than 1000;
+;; larger than 10,000;
+;; larger than 100,000;
+;; larger than 1,000,000.
+;; Note the time needed to test each prime.
+;; Since the testing algorithm has order of growth of (n),
+;; you should expect that testing for primes around 10,000
+;; should take about 10 times as long as testing for primes around 1000.
+;; Do your timing data bear this out?
+;; How well do the data for 100,000 and 1,000,000 support the n prediction?
+;; Is your result compatible with the notion that programs on your machine
+;; run in time proportional to the number of steps required for the computation?
+
+
+

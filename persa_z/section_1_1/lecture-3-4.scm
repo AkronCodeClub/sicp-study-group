@@ -5,7 +5,20 @@
 ;; Write a procedure that computes f by means of a recursive process.
 ;; Write a procedure that computes f by means of an iterative process.
 
-;; Using recursive process:
+
+;; Originally I tried this:
+
+
+;; This is how I end up with 16 (and how I solve the problem on paper, using 5 as n):
+ (define (f n)
+  (if (< n 3)
+    n
+    (+ (* 1 (- n 1))
+       (* 2 (- n 2))
+       (* 3 (- n 3)))))
+       
+       
+;; Using the real recursive process:
 
 (define (f n)
   (if (< n 3)

@@ -32,29 +32,3 @@
 
 (count-true 5 1 5) #T
 (count-true 4 1 5) #F
-
-;(define lst (e-i 1 5))
-
-;(define (list-ref lst n)
-;  (if (= n 0)
-;      (first lst)
-;      (list-ref (rest lst) (- n 1))))
-
-;(list-ref lst 3)
-
-
-;(length lst)
-
-;(define (copy lst)
-;  (if (null? lst)
-;      nil
-;      (adjoin (first lst)
-;              (copy (rest lst)))))
-
-;(define (append list1 list2)
-;  (cond ((null? list1) list2)
-;        (else
-;         (adjoin (first list1)
-;                 (append (rest list1)
-;                         list2)))))
-

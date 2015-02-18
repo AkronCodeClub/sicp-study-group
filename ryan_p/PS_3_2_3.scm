@@ -30,6 +30,6 @@
         (= pred (length (e-i upper lower)))
         (= pred (length (e-i lower upper))))))
 
-(count-true 5 1 5)
-(count-true 4 1 5)
+(count-true 5 1 5) ; T
+(count-true 4 1 5) ; F
 
